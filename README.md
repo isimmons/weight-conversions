@@ -4,7 +4,7 @@
 [![Tests](https://img.shields.io/github/actions/workflow/status/isimmons/weight-conversions/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/isimmons/weight-conversions/actions/workflows/run-tests.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/isimmons/weight-conversions.svg?style=flat-square)](https://packagist.org/packages/isimmons/weight-conversions)
 
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
+Convert any number of units in grams or kilograms to pounds or stones
 
 ## Installation
 
@@ -14,12 +14,25 @@ You can install the package via composer:
 composer require isimmons/weight-conversions
 ```
 
-## Usage
+## Basic Usage
 
 ```php
-$skeleton = new Isimmons\WeightConversions();
-echo $skeleton->echoPhrase('Hello, Isimmons!');
+use Isimmons\WeightConversions\Weight;
+
+include 'vendor/autoload.php';
+
+$amount = 100;
+$pounds_from_grams = Weight::grams($amount)->toPounds();
+
+$pounds_from_kilograms = Weight::kilograms($amount)->toPounds();
+
+echo "$amount grams = $pounds_from_grams pounds." . PHP_EOL;
+echo "$amount kilograms = $pounds_from_kilograms pounds.\n" . PHP_EOL;
 ```
+
+## Available Methods
+- toPounds
+- toStones
 
 ## Testing
 
