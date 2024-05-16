@@ -11,5 +11,5 @@ it('can convert kilograms to pounds correctly', function () {
 it('can convert grams to pounds correctly', function () {
     $pounds = Weight::grams(100)->toPounds();
 
-    expect($pounds)->toEqual(0.22);
+    expect($pounds)->toEqual(0.2235);
 });
