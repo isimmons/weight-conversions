@@ -2,6 +2,7 @@
 # https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
 
 # Ignore all test and documentation with "export-ignore".
+# This means users who require our package in their projects won't get these files with it.
 /.github export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
