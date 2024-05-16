@@ -1,9 +1,7 @@
 <?php
 
 namespace Isimmons\WeightConversions;
-
-use function round;
-
+use Whoops\Exception\ErrorException;
 class Weight
 {
     protected float $amount;
@@ -17,6 +15,8 @@ class Weight
 
     public static function kilograms(float $amount): static
     {
+        $myArray = array(1, 2, 3);
+
         return new static($amount, 'Kg');
     }
 
