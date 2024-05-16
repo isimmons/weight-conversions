@@ -13,3 +13,15 @@ it('can convert grams to pounds correctly', function () {
 
     expect($pounds)->toEqual(0.22);
 });
+
+it('can convert kilograms to stones correctly', function () {
+    $stones = Weight::kilograms(100)->toStones();
+
+    expect($stones)->toEqual(15.75);
+});
+
+it('can convert grams to stones correctly', function () {
+    $stones = Weight::grams(100)->toStones();
+
+    expect($stones)->toEqual(0.02);
+});
