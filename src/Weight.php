@@ -2,22 +2,35 @@
 
 namespace Isimmons\WeightConversions;
 
+use function round;
+
 class Weight
 {
-    public int $startingWeight = 0;
+    protected float $amount;
+    protected string $unit;
 
-    public function __construct(int $startingWeight)
+    public function __construct(float $amount, string $unit)
     {
-        $this->startingWeight = $startingWeight;
+        $this->amount = $amount;
+        $this->unit = $unit;
     }
 
-    public static function kilograms(int $int): static
+    public static function kilograms(float $amount): static
     {
-        return new static($int);
+        return new static($amount, 'Kg');
+    }
+
+    public static function grams(float $amount): static
+    {
+        return new static($amount, 'G');
     }
 
     public function toPounds(): float
     {
-        return $this->startingWeight * 2.2046;
+        if ($this->unit === 'Kg') {
+            return round($this->amount * 2.2046, 2);
+        } elseif ($this->unit === 'G') {
+            return round($this->amount / 453.6, 2);
+        }
     }
 }
